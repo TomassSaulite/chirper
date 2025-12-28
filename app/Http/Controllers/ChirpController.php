@@ -60,4 +60,5 @@ class ChirpController extends Controller
 
         return redirect('/')->with('success', 'Chirp deleted!');
     }
+    
 }

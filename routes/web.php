@@ -6,6 +6,7 @@ use App\Http\Controllers\ChirpController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\Logout;
+use App\Http\Controllers\LikeController as Like;
 
 Route::get('/', [ChirpController::class, 'index']);
  
@@ -38,3 +39,7 @@ Route::post('/login', Login::class)
 Route::post('/logout', Logout::class)
     ->middleware('auth')
     ->name('logout');
+
+Route::post('chirps/{chirp}/like', [Like::class, 'store'])
+    ->middleware('auth')
+    ->name('chirp.like');

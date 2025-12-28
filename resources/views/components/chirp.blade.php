@@ -32,6 +32,11 @@
                             <span class="text-base-content/60">·</span>
                             <span class="text-sm text-base-content/60 italic">edited</span>
                         @endif
+                        <form method="POST" action="{{ route('chirp.like', $chirp) }}">
+                            @csrf
+                            <a><button type="submit">❤️</button></a>
+                        </form>
+                        <span>{{ (int) $chirp->likes }}</span>
                     </div>
 
                     

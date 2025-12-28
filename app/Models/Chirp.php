@@ -9,10 +9,18 @@ class Chirp extends Model
 {
     protected $fillable = [
         'message',
+        'likes',
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+    protected $casts = [
+        'likes' => 'integer',
+    ];
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }
